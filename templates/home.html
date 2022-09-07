@@ -8,7 +8,7 @@
     <div class="container">
     
     <div class="intro-banner-wrap">
-    	<img src="{% static '' %}images/banners/1.jpg" class="img-fluid rounded">
+    	<img src=" {% static 'images/banners/front_banner.jpg' %}" class="img-fluid rounded">
     </div>
     
     </div> <!-- container //  -->
@@ -26,14 +26,15 @@
     
     	
 <div class="row">
-	<div class="col-md-3">
 {% for product in products %}
-	<div class="card card-product-grid">
-		<figcaption class="info-wrap">
-			<a href="./products-detail.html" class="title">{{product.product_name}}</a>
-			<div class="price mt-1">${{products.price}}</div> <!-- price-wrap.// -->
-		</figcaption>
-	</div>
+	<div class="col-md-3">
+	    <div class="card card-product-grid">
+            <a href="{% url 'product_detail' product.id %}" class="img-wrap"><img src="{{product.image.url}}" alt=""></a>
+		    <figcaption class="info-wrap">
+                <a href="{% url 'product_detail' product.id %}" class="title">{{product.product_name}}</a>
+                <div class="price mt-1">${{product.price}}</div> <!-- price-wrap.// -->
+		    </figcaption>
+	    </div>
 	</div> 
 {% endfor %}
 </div>
