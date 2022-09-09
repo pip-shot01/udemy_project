@@ -1,0 +1,18 @@
+
+{% if messages %}
+<ul class="messages alert alert-dissimisible alert-warning" role="alert" id="message">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    {% for message in messages %}
+    <li>
+        {% comment %} {% if message.tags %}  {% endcomment %}
+        {% comment %} {{ message.tags }} {% endcomment %}
+        {% comment %} {% endif %} {% endcomment %}
+        {{ message }}
+    </li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+{% comment %} setTimeout(function(){
+    $('message').fadeOut('slow')
+}, 4000) {% endcomment %}
